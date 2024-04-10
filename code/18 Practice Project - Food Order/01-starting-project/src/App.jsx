@@ -1,4 +1,5 @@
 function App() {
+  // No notes here
   return (
     <>
       <h1>You got this 💪</h1>
