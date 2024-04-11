@@ -1,4 +1,6 @@
+// Created 'MealItem' component for displaying individual meal item
 export default function MealItem({ meal }) {
+  // Defined basic elements for the component
   return (
     <li className="meal-item">
       <article>
