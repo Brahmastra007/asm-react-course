@@ -9,6 +9,7 @@ export default function MealItem({ meal }) {
         <div>
           <h3>{meal.name}</h3>
           <p className="meal-item-price">
+            {/* Adding meal price in currency format */}
             {currencyFormatter.format(meal.price)}
           </p>
           <p className="meal-item-description">{meal.description}</p>

@@ -9,6 +9,7 @@ export default function Header() {
         <h1>ReactFood</h1>
       </div>
       <nav>
+        {/* Adding custom 'Button' component for cart */}
         <Button textOnly>Cart (0)</Button>
       </nav>
     </header>
