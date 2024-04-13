@@ -5,8 +5,10 @@ import logoImg from '../assets/logo.jpg';
 import CartContext from '../store/CartContext.jsx';
 
 export default function Header() {
+  // Getting cart context
   const cartCtx = useContext(CartContext);
 
+  // Getting the total number of items in the cart
   const totalCartItems = cartCtx.items.reduce((totalNumberOfItems, item) => {
     return totalNumberOfItems + item.quantity;
   }, 0);

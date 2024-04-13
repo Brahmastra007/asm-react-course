@@ -5,8 +5,10 @@ import Button from './UI/Button.jsx';
 import CartContext from '../store/CartContext.jsx';
 
 export default function MealItem({ meal }) {
+  // Getting cart context
   const cartCtx = useContext(CartContext);
 
+  // Function for adding item to the cart
   function handleAddMealToCart() {
     cartCtx.addItem(meal);
   }
