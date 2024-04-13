@@ -1,5 +1,6 @@
 import { currencyFormatter } from '../util/formatting.js';
 
+// Defining a component for individual items in the cart
 export default function CartItem({
   name,
   quantity,
@@ -7,6 +8,8 @@ export default function CartItem({
   onIncrease,
   onDecrease,
 }) {
+  // Defining different elements including the buttons for increasing or decreasing the
+  // quantity of the item
   return (
     <li className="cart-item">
       <p>

@@ -1,5 +1,7 @@
 import { createContext, useState } from 'react';
 
+// Defining a user progress context which shows what is the current progress of the user,
+// i.e. if the user is still picking items, in cart or in checkout.
 const UserProgressContext = createContext({
   progress: '', // 'cart', 'checkout'
   showCart: () => {},
@@ -9,8 +11,10 @@ const UserProgressContext = createContext({
 });
 
 export function UserProgressContextProvider({ children }) {
+  // Using a simple state here to track the progress
   const [userProgress, setUserProgress] = useState('');
 
+  // Functions to manipulate the progress
   function showCart() {
     setUserProgress('cart');
   }
@@ -27,6 +31,7 @@ export function UserProgressContextProvider({ children }) {
     setUserProgress('');
   }
 
+  // Defining the context variable which can be accessed in other components
   const userProgressCtx = {
     progress: userProgress,
     showCart,

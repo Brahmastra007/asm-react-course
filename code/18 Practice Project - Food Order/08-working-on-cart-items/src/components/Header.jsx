@@ -7,12 +7,14 @@ import UserProgressContext from '../store/UserProgressContext.jsx';
 
 export default function Header() {
   const cartCtx = useContext(CartContext);
+  // Importing the user progress context
   const userProgressCtx = useContext(UserProgressContext);
 
   const totalCartItems = cartCtx.items.reduce((totalNumberOfItems, item) => {
     return totalNumberOfItems + item.quantity;
   }, 0);
 
+  // Defining function to show the cart
   function handleShowCart() {
     userProgressCtx.showCart();
   }
@@ -24,6 +26,7 @@ export default function Header() {
         <h1>ReactFood</h1>
       </div>
       <nav>
+        {/* On clicking on the cart button, we should show the cart */}
         <Button textOnly onClick={handleShowCart}>
           Cart ({totalCartItems})
         </Button>
