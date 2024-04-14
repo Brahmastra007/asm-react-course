@@ -20,6 +20,7 @@ export default function Cart() {
     userProgressCtx.hideCart();
   }
 
+  // Defining function to go to checkout form
   function handleGoToCheckout() {
     userProgressCtx.showCheckout();
   }
@@ -28,6 +29,8 @@ export default function Cart() {
     <Modal
       className="cart"
       open={userProgressCtx.progress === 'cart'}
+      // Only run the cart-closing function if the cart is present, so that it does not run
+      // when the cart gets closed when we go to the checkout form.
       onClose={userProgressCtx.progress === 'cart' ? handleCloseCart : null}
     >
       <h2>Your Cart</h2>
@@ -48,7 +51,9 @@ export default function Cart() {
         <Button textOnly onClick={handleCloseCart}>
           Close
         </Button>
+        {/* Showing checkout button only if we have at least one item in cart */}
         {cartCtx.items.length > 0 && (
+          //* Adding function to go to checkout
           <Button onClick={handleGoToCheckout}>Go to Checkout</Button>
         )}
       </p>

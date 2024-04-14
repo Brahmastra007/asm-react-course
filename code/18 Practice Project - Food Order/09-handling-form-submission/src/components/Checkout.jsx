@@ -7,6 +7,7 @@ import Input from './UI/Input.jsx';
 import Button from './UI/Button.jsx';
 import UserProgressContext from '../store/UserProgressContext.jsx';
 
+// Defining 'Checkout' component for going through checkout
 export default function Checkout() {
   const cartCtx = useContext(CartContext);
   const userProgressCtx = useContext(UserProgressContext);
@@ -16,6 +17,7 @@ export default function Checkout() {
     0
   );
 
+  // Defining function to close the checkout modal
   function handleClose() {
     userProgressCtx.hideCheckout();
   }
@@ -23,14 +25,18 @@ export default function Checkout() {
   function handleSubmit(event) {
     event.preventDefault();
 
+    // Extracting the formdata and getting it in an object form
     const fd = new FormData(event.target);
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
 
     
   }
 
+  // Defining all the input elements in the checkout form
   return (
+    // Adding function which will run whenever the modal is closed
     <Modal open={userProgressCtx.progress === 'checkout'} onClose={handleClose}>
+      {/* Adding function to run when form is submitted */}
       <form onSubmit={handleSubmit}>
         <h2>Checkout</h2>
         <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
@@ -44,6 +50,7 @@ export default function Checkout() {
         </div>
 
         <p className="modal-actions">
+          {/* Adding function to close the checkout modal */}
           <Button type="button" textOnly onClick={handleClose}>
             Close
           </Button>

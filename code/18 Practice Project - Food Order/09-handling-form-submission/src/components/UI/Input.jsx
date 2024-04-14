@@ -1,3 +1,4 @@
+// Defining an input component
 export default function Input({ label, id, ...props }) {
   return (
     <p className="control">

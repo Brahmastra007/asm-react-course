@@ -12,6 +12,7 @@ function App() {
         <Header />
         <Meals />
         <Cart />
+        {/* Adding the checkout component */}
         <Checkout />
       </CartContextProvider>
     </UserProgressContextProvider>
