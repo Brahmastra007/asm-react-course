@@ -8,6 +8,8 @@ import {
 import HomePage from './pages/Home';
 import ProductsPage from './pages/Products';
 
+// Alternatively defining routes
+
 // const routeDefinitions = createRoutesFromElements(
 //   <Route>
 //     <Route path="/" element={<HomePage />} />
