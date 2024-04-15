@@ -9,6 +9,7 @@ import UserProgressContext from '../store/UserProgressContext.jsx';
 import useHttp from '../hooks/useHttp.js';
 import Error from './Error.jsx';
 
+// Defining config for sending the POST request
 const requestConfig = {
   method: 'POST',
   headers: {
@@ -37,6 +38,8 @@ export default function Checkout() {
     userProgressCtx.hideCheckout();
   }
 
+  // Defining function to do clean-up work after order is sent, e.g. closing the checkout modal,
+  // clearing the cart and clearing the data
   function handleFinish() {
     userProgressCtx.hideCheckout();
     cartCtx.clearCart();
@@ -49,6 +52,7 @@ export default function Checkout() {
     const fd = new FormData(event.target);
     const customerData = Object.fromEntries(fd.entries()); // { email: test@example.com }
 
+    // Sending the request to place an order
     sendRequest(
       JSON.stringify({
         order: {
@@ -59,6 +63,7 @@ export default function Checkout() {
     );
   }
 
+  // Extracting the actions in a separate variable
   let actions = (
     <>
       <Button type="button" textOnly onClick={handleClose}>
@@ -68,10 +73,14 @@ export default function Checkout() {
     </>
   );
 
+  // If sending data, don't show the user the close and submit buttons and instead show the
+  // relevant message
   if (isSending) {
     actions = <span>Sending order data...</span>;
   }
 
+  // If we have received the response data and not encountered any error, then we should show
+  // the success modal
   if (data && !error) {
     return (
       <Modal
@@ -84,6 +93,7 @@ export default function Checkout() {
           We will get back to you with more details via email within the next
           few minutes.
         </p>
+        {/* Showing the button for closing the success modal */}
         <p className="modal-actions">
           <Button onClick={handleFinish}>Okay</Button>
         </p>
@@ -104,9 +114,9 @@ export default function Checkout() {
           <Input label="Postal Code" type="text" id="postal-code" />
           <Input label="City" type="text" id="city" />
         </div>
-
+        {/* Showing error if error is encountered while sending request */}
         {error && <Error title="Failed to submit order" message={error} />}
-
+        {/* Extracting the action buttons into a variable */}
         <p className="modal-actions">{actions}</p>
       </form>
     </Modal>

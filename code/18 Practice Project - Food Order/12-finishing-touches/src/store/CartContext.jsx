@@ -50,6 +50,7 @@ function cartReducer(state, action) {
     return { ...state, items: updatedItems };
   }
 
+  // Clearing the cart
   if (action.type === 'CLEAR_CART') {
     return { ...state, items: [] };
   }
@@ -68,6 +69,7 @@ export function CartContextProvider({ children }) {
     dispatchCartAction({ type: 'REMOVE_ITEM', id });
   }
 
+  // Defining function to dispatch action to clear the cart
   function clearCart() {
     dispatchCartAction({ type: 'CLEAR_CART' });
   }

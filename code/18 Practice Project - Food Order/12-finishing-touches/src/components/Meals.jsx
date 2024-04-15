@@ -15,6 +15,7 @@ export default function Meals() {
     return <p className="center">Fetching meals...</p>;
   }
 
+  // If error, show the user the relevant error
   if (error) {
     return <Error title="Failed to fetch meals" message={error} />;
   }

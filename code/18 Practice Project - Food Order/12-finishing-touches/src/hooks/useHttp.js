@@ -19,6 +19,7 @@ export default function useHttp(url, config, initialData) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
 
+  // Defining function to clear the data
   function clearData() {
     setData(initialData);
   }
@@ -27,6 +28,7 @@ export default function useHttp(url, config, initialData) {
     async function sendRequest(data) {
       setIsLoading(true);
       try {
+        // Merging data to be sent with the config (e.g. in the case of POST request)
         const resData = await sendHttpRequest(url, { ...config, body: data });
         setData(resData);
       } catch (error) {
