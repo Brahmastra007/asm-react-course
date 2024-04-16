@@ -1,5 +1,6 @@
 import MainNavigation from '../components/MainNavigation';
 
+// Adding error page for when we go to unvalid urls
 function ErrorPage() {
   return (
     <>

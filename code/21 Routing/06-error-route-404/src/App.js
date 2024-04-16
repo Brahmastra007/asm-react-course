@@ -21,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    // Adding error page for when error is raised for this path
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <HomePage /> },
