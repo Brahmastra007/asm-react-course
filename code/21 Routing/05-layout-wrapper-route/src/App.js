@@ -17,6 +17,7 @@ import RootLayout from './pages/Root';
 // );
 
 const router = createBrowserRouter([
+  // Defining a root element which acts as a wrapper for the child elements
   {
     path: '/',
     element: <RootLayout />,
