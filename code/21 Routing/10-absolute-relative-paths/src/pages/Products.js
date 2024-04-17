@@ -13,6 +13,7 @@ function ProductsPage() {
       <ul>
         {PRODUCTS.map((prod) => (
           <li key={prod.id}>
+            {/* Adding relative path (this path takes us to '/products/id') */}
             <Link to={prod.id}>{prod.title}</Link>
           </li>
         ))}
