@@ -11,6 +11,7 @@ function ProductsPage() {
     <>
       <h1>The Products Page</h1>
       <ul>
+        {/* Mapping all the products to individual links */}
         {PRODUCTS.map((prod) => (
           <li key={prod.id}>
             <Link to={`/products/${prod.id}`}>{prod.title}</Link>

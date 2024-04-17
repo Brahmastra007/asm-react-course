@@ -26,6 +26,7 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <HomePage /> },
       { path: '/products', element: <ProductsPage /> },
+      // Adding dynamic path where 'productId' can be any string
       { path: '/products/:productId', element: <ProductDetailPage /> }
     ],
   }
