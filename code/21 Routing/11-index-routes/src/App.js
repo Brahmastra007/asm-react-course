@@ -24,6 +24,8 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <ErrorPage />,
     children: [
+      // Adding an index route which would be loaded by default when we access the parent url
+      // This is an alternative to adding 'path' as ''
       { index: true, element: <HomePage /> },
       { path: 'products', element: <ProductsPage /> },
       { path: 'products/:productId', element: <ProductDetailPage /> }
