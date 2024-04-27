@@ -3,6 +3,7 @@
 import classes from './EventsList.module.css';
 
 function EventsList({events}) {
+  // We can also get the data from the loader here (in a child component of 'Events' component)
   // const events = useLoaderData();
 
   return (

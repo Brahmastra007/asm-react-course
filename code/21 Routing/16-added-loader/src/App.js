@@ -21,6 +21,8 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <EventsPage />,
+            // We can add a loader to load data for this route which can be used inside this
+            // route's page component and all components used inside it
             loader: async () => {
               const response = await fetch('http://localhost:8080/events');
 
