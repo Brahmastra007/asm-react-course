@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import EventsList from '../components/EventsList';
 
 function EventsPage() {
+  // Fetching and rendering events data and managing loading & error states
   const [isLoading, setIsLoading] = useState(false);
   const [fetchedEvents, setFetchedEvents] = useState();
   const [error, setError] = useState();
