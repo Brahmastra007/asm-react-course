@@ -21,6 +21,7 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <EventsPage />,
+            // Calling the imported loader function
             loader: eventsLoader,
           },
           { path: ':eventId', element: <EventDetailPage /> },

@@ -10,6 +10,7 @@ function EventsPage() {
 
 export default EventsPage;
 
+// Exporting the loader logic in the page component where it will most probably be used
 export async function loader() {
   const response = await fetch('http://localhost:8080/events');
 
