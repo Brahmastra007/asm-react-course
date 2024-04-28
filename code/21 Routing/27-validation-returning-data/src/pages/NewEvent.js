@@ -26,6 +26,7 @@ export async function action({ request, params }) {
     body: JSON.stringify(eventData),
   });
 
+  // If we get validation errors, return the response received which contains the errors data
   if (response.status === 422) {
     return response;
   }

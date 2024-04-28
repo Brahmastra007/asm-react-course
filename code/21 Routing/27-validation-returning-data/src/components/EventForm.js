@@ -8,6 +8,8 @@ import {
 import classes from './EventForm.module.css';
 
 function EventForm({ method, event }) {
+  // Using the 'useActionData' hook to get the data returned from the action of submitting
+  // which will contain the validation errors
   const data = useActionData();
   const navigate = useNavigate();
   const navigation = useNavigation();
@@ -20,6 +22,7 @@ function EventForm({ method, event }) {
 
   return (
     <Form method="post" className={classes.form}>
+      {/* Displaying all the validation errors here */}
       {data && data.errors && (
         <ul>
           {Object.values(data.errors).map((err) => (
