@@ -12,6 +12,7 @@ function EventsList({events}) {
       <ul className={classes.list}>
         {events.map((event) => (
           <li key={event.id} className={classes.item}>
+            {/* Changing anchor element to 'Link' element to redirect to specific event page */}
             <Link to={event.id}>
               <img src={event.image} alt={event.title} />
               <div className={classes.content}>

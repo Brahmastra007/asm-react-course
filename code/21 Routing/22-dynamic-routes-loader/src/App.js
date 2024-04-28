@@ -30,6 +30,7 @@ const router = createBrowserRouter([
           {
             path: ':eventId',
             element: <EventDetailPage />,
+            // Adding the loader which will load the specific event data
             loader: eventDetailLoader,
           },
           { path: 'new', element: <NewEventPage /> },
