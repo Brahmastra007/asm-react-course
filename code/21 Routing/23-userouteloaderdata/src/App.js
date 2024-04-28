@@ -27,8 +27,12 @@ const router = createBrowserRouter([
             element: <EventsPage />,
             loader: eventsLoader,
           },
+          // We can nest the default route and 'edit' route inside a common route like this
+          // so that we can use the same loader for loading event data
           {
             path: ':eventId',
+            // Adding an id to this route so that the children routes can access the loader data
+            // from this parent route
             id: 'event-detail',
             loader: eventDetailLoader,
             children: [

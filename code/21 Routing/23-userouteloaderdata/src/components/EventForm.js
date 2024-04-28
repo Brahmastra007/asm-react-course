@@ -17,6 +17,7 @@ function EventForm({ method, event }) {
           type="text"
           name="title"
           required
+          // We can add a default value in case of editing an existing event
           defaultValue={event ? event.title : ''}
         />
       </p>

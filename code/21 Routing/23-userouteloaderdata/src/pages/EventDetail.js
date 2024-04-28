@@ -3,8 +3,11 @@ import { useRouteLoaderData, json } from 'react-router-dom';
 import EventItem from '../components/EventItem';
 
 function EventDetailPage() {
+  // To use the loader data from a parent route, we have to use this hook and provide the id
+  // of the parent route
   const data = useRouteLoaderData('event-detail');
 
+  // Sending the event data as prop
   return <EventItem event={data.event} />;
 }
 
