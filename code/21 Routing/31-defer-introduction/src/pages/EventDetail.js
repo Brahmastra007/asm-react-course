@@ -11,9 +11,12 @@ import EventItem from '../components/EventItem';
 import EventsList from '../components/EventsList';
 
 function EventDetailPage() {
+  // Destructuring both data that we require
   const { event, events } = useRouteLoaderData('event-detail');
 
   return (
+    // Here we provide two 'Suspense & Await' blocks for two different loading elements which will
+    // wait separately for data.
     <>
       <Suspense fallback={<p style={{ textAlign: 'center' }}>Loading...</p>}>
         <Await resolve={event}>
@@ -31,6 +34,7 @@ function EventDetailPage() {
 
 export default EventDetailPage;
 
+// Loading the specific event data
 async function loadEvent(id) {
   const response = await fetch('http://localhost:8080/events/' + id);
 
@@ -47,6 +51,7 @@ async function loadEvent(id) {
   }
 }
 
+// Loading all events data
 async function loadEvents() {
   const response = await fetch('http://localhost:8080/events');
 
@@ -71,7 +76,9 @@ export async function loader({ request, params }) {
   const id = params.eventId;
 
   return defer({
+    // Here await means the page will be rendered only after this data has arrived
     event: await loadEvent(id),
+    // Here the page will be rendered before the data has arrived
     events: loadEvents(),
   });
 }

@@ -12,6 +12,7 @@ function EventsList({events}) {
       <ul className={classes.list}>
         {events.map((event) => (
           <li key={event.id} className={classes.item}>
+            {/* Changing the link to absolute otherwise it will not work on 'EventDetailPage' */}
             <Link to={`/events/${event.id}`}>
               <img src={event.image} alt={event.title} />
               <div className={classes.content}>
