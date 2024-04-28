@@ -39,6 +39,7 @@ const router = createBrowserRouter([
               { path: 'edit', element: <EditEventPage /> },
             ],
           },
+          // Adding an action which will be executed when the new event form is submitted
           { path: 'new', element: <NewEventPage />, action: newEventAction },
         ],
       },

@@ -9,6 +9,8 @@ function EventForm({ method, event }) {
   }
 
   return (
+    // Using the 'Form' component from React and setting the method as 'POST' which will
+    // trigger an action for the current route when submitted
     <Form method='post' className={classes.form}>
       <p>
         <label htmlFor="title">Title</label>
