@@ -13,6 +13,8 @@ const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
+    // We can add an error element in the root route so that any error raised by it or its children
+    // will bubble up here and display this error page.
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <HomePage /> },
