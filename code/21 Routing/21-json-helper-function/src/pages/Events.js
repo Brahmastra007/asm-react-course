@@ -23,6 +23,8 @@ export async function loader() {
     // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
     //   status: 500,
     // });
+    // We can use the 'json' function to return a 'Response' object with the message and status
+    // instead of manually creating a 'Response' object.
     throw json(
       { message: 'Could not fetch events.' },
       {

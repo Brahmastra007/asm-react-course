@@ -10,6 +10,7 @@ function ErrorPage() {
   let message = 'Something went wrong!';
 
   if (error.status === 500) {
+    // We don't have to parse the data as React does that for us.
     message = error.data.message;
   }
 
