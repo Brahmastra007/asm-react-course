@@ -36,6 +36,7 @@ const router = createBrowserRouter([
               {
                 index: true,
                 element: <EventDetailPage />,
+                // Adding the action for deleting an event
                 action: deleteEventAction,
               },
               { path: 'edit', element: <EditEventPage /> },

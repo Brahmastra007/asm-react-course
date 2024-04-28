@@ -3,12 +3,17 @@ import { Link, useSubmit } from 'react-router-dom';
 import classes from './EventItem.module.css';
 
 function EventItem({ event }) {
+  // Using 'useSubmit' hook which can be used to trigger an action programmatically
   const submit = useSubmit();
 
   function startDeleteHandler() {
+    // Confirming if we want to delete the event
     const proceed = window.confirm('Are you sure?');
 
     if (proceed) {
+      // Triggering an action with no data and a 'DELETE' method
+      // The action is executed for the current active route, or a different route by specifying
+      // the route path through the key 'action'
       submit(null, { method: 'delete' });
     }
   }

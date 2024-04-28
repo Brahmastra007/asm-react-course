@@ -27,9 +27,13 @@ export async function loader({ request, params }) {
   }
 }
 
+// Adding action to delete an event
 export async function action({ params, request }) {
+  // Getting the id of item we want to delete
   const eventId = params.eventId;
+  // Sending a delete request
   const response = await fetch('http://localhost:8080/events/' + eventId, {
+    // We can get the method from the 'request' object
     method: request.method,
   });
 
