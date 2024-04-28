@@ -21,6 +21,8 @@ function EventForm({ method, event }) {
   }
 
   return (
+    // Setting the method (e.g. 'POST', 'PATCH') we get from the props which will be available
+    // in the action function
     <Form method={method} className={classes.form}>
       {data && data.errors && (
         <ul>
@@ -83,7 +85,9 @@ function EventForm({ method, event }) {
 
 export default EventForm;
 
+// Adding the action function here to handle both new and edit event actions
 export async function action({ request, params }) {
+  // Getting the method for the request (e.g. 'POST', 'PATCH')
   const method = request.method;
   const data = await request.formData();
 
@@ -96,12 +100,14 @@ export async function action({ request, params }) {
 
   let url = 'http://localhost:8080/events';
 
+  // Modifying the url if method is different
   if (method === 'PATCH') {
     const eventId = params.eventId;
     url = 'http://localhost:8080/events/' + eventId;
   }
 
   const response = await fetch(url, {
+    // Specifying the method for the request
     method: method,
     headers: {
       'Content-Type': 'application/json',

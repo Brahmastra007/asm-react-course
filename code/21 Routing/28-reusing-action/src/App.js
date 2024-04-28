@@ -42,6 +42,7 @@ const router = createBrowserRouter([
               {
                 path: 'edit',
                 element: <EditEventPage />,
+                // Using the same action function for edit and new event
                 action: manipulateEventAction,
               },
             ],
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
           {
             path: 'new',
             element: <NewEventPage />,
+            // Using the same action function for edit and new event
             action: manipulateEventAction,
           },
         ],
