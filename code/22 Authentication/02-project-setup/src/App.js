@@ -55,6 +55,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+      // Adding a authentication page
       {
         path: 'auth',
         element: <AuthenticationPage />
