@@ -4,6 +4,7 @@ import classes from './MainNavigation.module.css';
 import NewsletterSignup from './NewsletterSignup';
 
 function MainNavigation() {
+  // Getting the auth token
   const token = useRouteLoaderData('root');
 
   return (
@@ -41,6 +42,7 @@ function MainNavigation() {
               Newsletter
             </NavLink>
           </li>
+          {/* Displaying authentication option only is user is logged out */}
           {!token && (
             <li>
               <NavLink
@@ -53,6 +55,7 @@ function MainNavigation() {
               </NavLink>
             </li>
           )}
+          {/* Displaying logout option only is user is logged in */}
           {token && (
             <li>
               <Form action="/logout" method="post">

@@ -3,6 +3,7 @@ import { NavLink, useRouteLoaderData } from 'react-router-dom';
 import classes from './EventsNavigation.module.css';
 
 function EventsNavigation() {
+  // Getting the auth token
   const token = useRouteLoaderData('root');
 
   return (
@@ -20,6 +21,7 @@ function EventsNavigation() {
               All Events
             </NavLink>
           </li>
+          {/* Displaying new event option only is user is logged in */}
           {token && (
             <li>
               <NavLink

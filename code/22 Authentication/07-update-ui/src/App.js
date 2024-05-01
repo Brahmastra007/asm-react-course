@@ -24,7 +24,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <RootLayout />,
     errorElement: <ErrorPage />,
+    // Adding an id so that the loader data for this route can be accessed from any other route
+    // using this id
     id: 'root',
+    // Adding a loader function for checking if user is logged in because it would be called
+    // before loading any route
     loader: tokenLoader,
     children: [
       { index: true, element: <HomePage /> },

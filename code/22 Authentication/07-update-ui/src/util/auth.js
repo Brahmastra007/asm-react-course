@@ -3,6 +3,7 @@ export function getAuthToken() {
   return token;
 }
 
+// Loader for getting the auth token
 export function tokenLoader() {
   return getAuthToken();
 }

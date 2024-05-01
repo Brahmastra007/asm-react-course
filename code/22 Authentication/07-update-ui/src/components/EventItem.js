@@ -3,6 +3,7 @@ import { Link, useRouteLoaderData, useSubmit } from 'react-router-dom';
 import classes from './EventItem.module.css';
 
 function EventItem({ event }) {
+  // Getting the auth token from the loader of the 'root' route
   const token = useRouteLoaderData('root');
   const submit = useSubmit();
 
@@ -20,6 +21,7 @@ function EventItem({ event }) {
       <h1>{event.title}</h1>
       <time>{event.date}</time>
       <p>{event.description}</p>
+      {/* Displaying event edit and delete options only if user is logged in */}
       {token && (
         <menu className={classes.actions}>
           <Link to="edit">Edit</Link>
