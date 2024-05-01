@@ -80,10 +80,12 @@ export async function loader({ request, params }) {
 export async function action({ params, request }) {
   const eventId = params.eventId;
 
+  // Getting the stored auth token
   const token = getAuthToken();
   const response = await fetch('http://localhost:8080/events/' + eventId, {
     method: request.method,
     headers: {
+      // Sending token with the request for authentication
       'Authorization': 'Bearer ' + token
     }
   });

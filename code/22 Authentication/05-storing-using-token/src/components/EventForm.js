@@ -102,11 +102,13 @@ export async function action({ request, params }) {
     url = 'http://localhost:8080/events/' + eventId;
   }
 
+  // Getting the stored auth token
   const token = getAuthToken();
   const response = await fetch(url, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      // Sending token with the request for authentication
       'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(eventData),
