@@ -50,6 +50,7 @@ function MainNavigation() {
             </NavLink>
           </li>
           <li>
+            {/* Adding a 'Form' which will call the action for the route '/logout' */}
             <Form action="/logout" method="post">
               <button>Logout</button>
             </Form>

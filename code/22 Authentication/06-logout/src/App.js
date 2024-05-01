@@ -68,6 +68,7 @@ const router = createBrowserRouter([
         element: <NewsletterPage />,
         action: newsletterAction,
       },
+      // Adding the route for logout
       {
         path: 'logout',
         action: logoutAction,
