@@ -1,5 +1,6 @@
 import { redirect } from 'react-router-dom';
 
+// Function for getting the remaining duration before the token expires
 export function getTokenDuration() {
   const storedExpirationDate = localStorage.getItem('expiration');
   const expirationDate = new Date(storedExpirationDate);
@@ -11,12 +12,14 @@ export function getTokenDuration() {
 export function getAuthToken() {
   const token = localStorage.getItem('token');
 
+  // No token is set
   if (!token) {
     return null;
   }
 
   const tokenDuration = getTokenDuration();
 
+  // The token has expired
   if (tokenDuration < 0) {
     return 'EXPIRED';
   }
@@ -35,4 +38,7 @@ export function checkAuthLoader() {
   if (!token) {
     return redirect('/auth');
   }
+
+  // We have to always return something from the loader function, otherwise we will get errors
+  return null;
 }

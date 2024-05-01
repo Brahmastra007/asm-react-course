@@ -42,8 +42,11 @@ export async function action({ request }) {
   const token = resData.token;
 
   localStorage.setItem('token', token);
+  // Defining an expiration object which determines the time when the auth token will expire
   const expiration = new Date();
+  // Setting expiration time to 1 hour after acquiring the token
   expiration.setHours(expiration.getHours() + 1);
+  // Storing the expiration in local storage
   localStorage.setItem('expiration', expiration.toISOString());
 
   return redirect('/');
