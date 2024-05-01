@@ -58,6 +58,7 @@ const router = createBrowserRouter([
       {
         path: 'auth',
         element: <AuthenticationPage />,
+        // Adding the action to be called after submitting the login/signup form
         action: authAction
       },
       {

@@ -9,17 +9,21 @@ import {
 import classes from './AuthForm.module.css';
 
 function AuthForm() {
+  // Retrieving the data returned from the action which may contain errors
   const data = useActionData();
+  // Getting the current navigation state
   const navigation = useNavigation();
 
   const [searchParams] = useSearchParams();
   const isLogin = searchParams.get('mode') === 'login';
+  // Determining if form is currently submitting
   const isSubmitting = navigation.state === 'submitting';
 
   return (
     <>
       <Form method="post" className={classes.form}>
         <h1>{isLogin ? 'Log in' : 'Create a new user'}</h1>
+        {/* Display errors received after submitting the form */}
         {data && data.errors && (
           <ul>
             {Object.values(data.errors).map((err) => (
@@ -27,6 +31,7 @@ function AuthForm() {
             ))}
           </ul>
         )}
+        {/* Display message received after submitting the form  */}
         {data && data.message && <p>{data.message}</p>}
         <p>
           <label htmlFor="email">Email</label>
@@ -40,6 +45,7 @@ function AuthForm() {
           <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
             {isLogin ? 'Create new user' : 'Login'}
           </Link>
+          {/* Disable the submit button and change the text if form is currently submitting */}
           <button disabled={isSubmitting}>
             {isSubmitting ? 'Submitting...' : 'Save'}
           </button>
