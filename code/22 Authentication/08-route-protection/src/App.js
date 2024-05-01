@@ -51,6 +51,7 @@ const router = createBrowserRouter([
                 path: 'edit',
                 element: <EditEventPage />,
                 action: manipulateEventAction,
+                // Adding authentication to check if user is logged in before loading this page
                 loader: checkAuthLoader,
               },
             ],
@@ -59,6 +60,7 @@ const router = createBrowserRouter([
             path: 'new',
             element: <NewEventPage />,
             action: manipulateEventAction,
+            // Adding authentication to check if user is logged in before loading this page
             loader: checkAuthLoader,
           },
         ],

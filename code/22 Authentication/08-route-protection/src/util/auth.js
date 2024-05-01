@@ -9,6 +9,8 @@ export function tokenLoader() {
   return getAuthToken();
 }
 
+// Function to check if user is logged in before visiting any restricted routes and if not,
+// then redirect to the login page
 export function checkAuthLoader() {
   const token = getAuthToken();
 
