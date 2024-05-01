@@ -1,0 +1,19 @@
+These are the steps required to deploy our React application to a remote server:
+1. Test Code: Manually & with automated tests
+2. Optimize Code: Optimize user experience & performance
+3. Build App: Run build process to parse, transform & optimize code
+4. Upload App: Upload production code to hosting server
+5. Configure Server: Ensure app is served securely & as intended
+
+For optimizing code, we have implemented lazy loading in this project. Lazy loading reduces the
+loading time for a website when the user first visits it as it can display the website even when
+all of its code has not been fetched from the server.
+
+For building the app, we must run 'npm run build' to build the application for deployment on
+production. We will get a 'build' folder which contains the code that must be deployed.
+
+For uploading app, we have used 'Firebase' in this project. We have also enabled SPA option
+(Single-Page Application) while deploying which will ensure that our app works as an SPA after
+deployment. This ensures that routing is done not on the server-side but on the client-side and
+the server returns the same default file for any route we visit and the actual routing is taken
+care of by our client-side code.
