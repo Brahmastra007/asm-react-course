@@ -59,6 +59,9 @@ export default function NewChallenge({ onDone }) {
 
         <motion.ul 
           id="new-challenge-images" 
+          // We can add a 'transition' property only to the 'visible' variant to apply that configuration
+          // only when we animate to that variant. Here we set the 'staggerChildren' property to apply
+          // an interval between the animations of the child elements.
           variants={{
             visible: { transition: { staggerChildren: 0.05 } }
           }}>
