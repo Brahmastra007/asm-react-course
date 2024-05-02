@@ -42,6 +42,7 @@ export default function ChallengeItem({
             </p>
           </div>
         </header>
+        {/* Add the 'expanded' class to allow rotation of icon */}
         <div className={`challenge-item-details ${isExpanded ? 'expanded' : ''}`}>
           <p>
             <button onClick={onViewDetails}>
