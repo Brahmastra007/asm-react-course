@@ -16,6 +16,9 @@ export default function Header() {
 
   return (
     <>
+      {/* React instantly removes an element from the DOM so we cannot add an animation to it when it
+      gets removed. We have to wrap the element in an 'AnimatePresence' component to allow it to have an
+      animation when it gets removed and not just remove it instantly. */}
       <AnimatePresence>
         {isCreatingNewChallenge && <NewChallenge onDone={handleDone} />}
       </AnimatePresence>

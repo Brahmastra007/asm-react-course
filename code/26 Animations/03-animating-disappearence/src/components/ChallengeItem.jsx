@@ -47,7 +47,10 @@ export default function ChallengeItem({
           <p>
             <button onClick={onViewDetails}>
               View Details{' '}
+              {/* Adding this Framer motion component for the 'span' element */}
               <motion.span
+                // Setting the 'rotate' property according to the prop received to turn the
+                // arrow icon downwards when clicked
                 animate={{ rotate: isExpanded ? 180 : 0 }}
                 className="challenge-item-details-icon"
               >
