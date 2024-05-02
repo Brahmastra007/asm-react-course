@@ -60,10 +60,15 @@ export default function NewChallenge({ onDone }) {
         <ul id="new-challenge-images">
           {images.map((image) => (
             <motion.li
+              // We can add the variants here to apply animation effect to this element also when the
+              // parent gets rendered.
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
                 visible: { opacity: 1, scale: 1 },
               }}
+              // Defining an 'exit' property same as the 'visible' variant. No animation will be played
+              // on this element while closing the parent because both start and end properties are same.
+              // However we can't directly type 'visible' as the property and must declare a new object.
               exit={{ opacity: 1, scale: 1 }}
               transition={{ type: 'spring' }}
               key={image.alt}
