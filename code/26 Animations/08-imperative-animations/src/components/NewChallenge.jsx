@@ -10,6 +10,8 @@ export default function NewChallenge({ onDone }) {
   const description = useRef();
   const deadline = useRef();
 
+  // 'Scope' defines the scope within which we want to apply the animations and 'animate' provides
+  // a function which we can use to imperatively animate elements.
   const [scope, animate] = useAnimate();
 
   const [selectedImage, setSelectedImage] = useState(null);
@@ -34,9 +36,14 @@ export default function NewChallenge({ onDone }) {
       !challenge.deadline.trim() ||
       !challenge.image
     ) {
+      // If one of the inputs is not valid, we show a shake animation on all the inputs
       animate(
+        // Targetting the input & textarea elements
         'input, textarea',
+        // Simulating shake animation by progressing through x-coordinate
         { x: [-10, 0, 10, 0] },
+        // These are the transition properties where we have added a staggering delay between the
+        // animations which will play these animations one by one with this delay between them.
         { type: 'spring', duration: 0.2, delay: stagger(0.05) }
       );
       return;
@@ -48,6 +55,7 @@ export default function NewChallenge({ onDone }) {
 
   return (
     <Modal title="New Challenge" onClose={onDone}>
+      {/* Adding the scope here so that animations are applied only to input elements in this form */}
       <form id="new-challenge" onSubmit={handleSubmit} ref={scope}>
         <p>
           <label htmlFor="title">Title</label>
