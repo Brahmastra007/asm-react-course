@@ -28,6 +28,7 @@ export default function ChallengeItem({
   }
 
   return (
+    // Adding an exit animation so that when this item is removed, it slides up and vanishes
     <motion.li layout exit={{ y: -30, opacity: 0 }}>
       <article className="challenge-item">
         <header>
