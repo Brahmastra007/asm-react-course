@@ -28,6 +28,8 @@ export default function ChallengeItem({
   }
 
   return (
+    // Adding the 'Framer' motion component here to animate this item whenever the layout is changed.
+    // E.g. when the item above it is removed, it smoothly slides up to that item's position.
     <motion.li layout>
       <article className="challenge-item">
         <header>
