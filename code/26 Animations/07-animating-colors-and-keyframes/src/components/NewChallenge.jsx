@@ -67,6 +67,9 @@ export default function NewChallenge({ onDone }) {
             <motion.li
               variants={{
                 hidden: { opacity: 0, scale: 0.5 },
+                // Instead of a single value, we can set a CSS property as an array containing multiple
+                // values to specify keyframes through which the animation will progress.
+                // We can also animate other CSS properties like 'color'.
                 visible: { opacity: 1, scale: [0.8, 1.3, 1] },
               }}
               exit={{ opacity: 1, scale: 1 }}
