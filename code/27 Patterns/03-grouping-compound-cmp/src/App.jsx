@@ -7,7 +7,9 @@ function App() {
         <h2>Why work with us?</h2>
 
         <Accordion className="accordion">
+          {/* Using accordion item component like this */}
           <Accordion.Item
+            // Adding an id to track the open item
             id="experience"
             className="accordion-item"
             title="We got 20 years of experience"
@@ -20,6 +22,7 @@ function App() {
               </p>
             </article>
           </Accordion.Item>
+          {/* Same as above */}
           <Accordion.Item
             id="local-guides"
             className="accordion-item"
