@@ -7,6 +7,7 @@ function App() {
         <h2>Why work with us?</h2>
 
         <Accordion className="accordion">
+          {/* We can apply 'id' prop only to this component and use context to pass it to its child components */}
           <Accordion.Item id="experience" className="accordion-item">
             <Accordion.Title className="accordion-item-title">
               We got 20 years of experience
@@ -21,6 +22,7 @@ function App() {
               </article>
             </Accordion.Content>
           </Accordion.Item>
+          {/* Same as above */}
           <Accordion.Item id="local-guides" className="accordion-item">
             <Accordion.Title className="accordion-item-title">
               We are working with local guides
