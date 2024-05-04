@@ -6,6 +6,7 @@ import caribbeanImg from './assets/caribbean-beach.jpg';
 import desertImg from './assets/desert-dunes.jpg';
 import forestImg from './assets/forest-waterfall.jpg';
 
+// Some dummy places data
 const PLACES = [
   {
     id: 'african-savanna',
@@ -77,6 +78,7 @@ function App() {
         </Accordion>
       </section>
       <section>
+        {/* Adding searches for different types of items */}
         <SearchableList items={PLACES} />
         <SearchableList items={['item 1', 'item 2']} />
       </section>
