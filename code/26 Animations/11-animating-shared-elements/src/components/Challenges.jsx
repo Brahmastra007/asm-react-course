@@ -45,6 +45,7 @@ export default function Challenges() {
           {displayedChallenges.length > 0 && (
             <motion.ol
               key="list"
+              // Adding entry animation configurations for this list
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ y: -30, opacity: 0 }}

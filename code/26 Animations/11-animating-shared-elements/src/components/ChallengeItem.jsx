@@ -56,9 +56,13 @@ export default function ChallengeItem({
             </button>
           </p>
 
+          {/* We have to apply this wrapper to this description element so that it also plays an animation
+          when it appears or disappears. This will also remove any unwanted wobbly effects that occur due
+          to this element being added and removed instantly and the 'layout' feature adjusting to that change. */}
           <AnimatePresence>
             {isExpanded && (
               <motion.div
+                // We add the appropriate animation configurations here
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: 'auto', opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}

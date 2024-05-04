@@ -12,6 +12,9 @@ function Tab({ isSelected, onSelect, badgeCaption, children }) {
         {children}
         <Badge caption={badgeCaption}></Badge>
       </button>
+      {/* For sliding the bar between different active tabs, we just have to add a 'layoutId'
+      property to the bar element and it will make the switch to the active bar occur smoothly
+      with a slide animation. */}
       {isSelected && <motion.div layoutId="tab-indicator" className="active-tab-indicator" />}
     </li>
   );
