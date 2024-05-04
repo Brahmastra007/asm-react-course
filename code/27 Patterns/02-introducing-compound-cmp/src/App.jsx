@@ -7,6 +7,8 @@ function App() {
       <section>
         <h2>Why work with us?</h2>
 
+        {/* These 'Accordion' and 'AccordionItem' are an example of a compound component which means they
+        both work together and not on their own. */}
         <Accordion className="accordion">
           <AccordionItem
             className="accordion-item"
