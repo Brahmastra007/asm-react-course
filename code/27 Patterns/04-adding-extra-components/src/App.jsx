@@ -8,6 +8,7 @@ function App() {
 
         <Accordion className="accordion">
           <Accordion.Item className="accordion-item">
+            {/* Adding and customizing all the new components added */}
             <Accordion.Title className="accordion-item-title" id="experience">
               We got 20 years of experience
             </Accordion.Title>

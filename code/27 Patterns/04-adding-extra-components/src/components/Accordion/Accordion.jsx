@@ -38,5 +38,6 @@ export default function Accordion({ children, className }) {
 }
 
 Accordion.Item = AccordionItem;
+// Adding more components as properties for this component
 Accordion.Title = AccordionTitle;
 Accordion.Content = AccordionContent;

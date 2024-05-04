@@ -1,5 +1,6 @@
 import { useAccordionContext } from './Accordion.jsx';
 
+// Creating a separate customizable accordion content component
 export default function AccordionContent({ id, className, children }) {
   const { openItemId } = useAccordionContext();
 
