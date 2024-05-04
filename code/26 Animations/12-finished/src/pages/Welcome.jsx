@@ -5,8 +5,12 @@ import cityImg from '../assets/city.jpg';
 import heroImg from '../assets/hero.png';
 
 export default function WelcomePage() {
+  // This hook is used to calculate how much the user has scrolled
   const { scrollY } = useScroll();
 
+  // This hook is used to transform the scroll value to a CSS property value which can be applied
+  // to any element to animate it as the user scrolls. Here we are mapping the scroll values to
+  // y-coordinate values for the city image so that the image will move up as the user scrolls down.
   const yCity = useTransform(scrollY, [0, 200], [0, -100]);
   const opacityCity = useTransform(
     scrollY,
@@ -23,6 +27,7 @@ export default function WelcomePage() {
       <header id="welcome-header">
         <motion.div
           id="welcome-header-content"
+          // Applying the transformed value in the style
           style={{ scale: scaleText, y: yText }}
         >
           <h1>Ready for a challenge?</h1>
@@ -31,12 +36,14 @@ export default function WelcomePage() {
           </Link>
         </motion.div>
         <motion.img
+          // Same as above
           style={{ opacity: opacityCity, y: yCity }}
           src={cityImg}
           alt="A city skyline touched by sunlight"
           id="city-image"
         />
         <motion.img
+          // Same as above
           style={{ y: yHero, opacity: opacityHero }}
           src={heroImg}
           alt="A superhero wearing a cape"
