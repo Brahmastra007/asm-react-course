@@ -78,6 +78,9 @@ function App() {
         </Accordion>
       </section>
       <section>
+        {/* We pass the render function between this component's tags as the 'children' prop so that
+        it will be called to render the items. We also provide the function for getting the key from
+        the item. */}
         <SearchableList items={PLACES} itemKeyFn={(item) => item.id}>
           {(item) => <Place item={item} />}
         </SearchableList>

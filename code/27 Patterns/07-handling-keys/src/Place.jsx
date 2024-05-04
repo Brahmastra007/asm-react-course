@@ -1,3 +1,4 @@
+// Component to render a place
 export default function Place({ item }) {
   return (
     <article className="place">
