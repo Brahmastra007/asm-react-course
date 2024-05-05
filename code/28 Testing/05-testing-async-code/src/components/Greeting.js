@@ -12,6 +12,7 @@ const Greeting = () => {
   return (
     <div>
       <h2>Hello World!</h2>
+      {/* Components nested inside will work as usual while running tests */}
       {!changedText && <Output>It's good to see you!</Output>}
       {changedText && <Output>Changed!</Output>}
       <button onClick={changeTextHandler}>Change Text!</button>
