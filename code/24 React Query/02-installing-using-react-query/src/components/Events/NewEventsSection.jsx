@@ -6,8 +6,13 @@ import EventItem from './EventItem.jsx';
 import { fetchEvents } from '../../util/http.js';
 
 export default function NewEventsSection() {
+  // Using 'useQuery' hook to manage sending the HTTP request, get its loading state, and get errors
+  // if any occurred
   const { data, isPending, isError, error } = useQuery({
+    // Providing a 'queryKey' here so that Tanstack Query can cache this request's results in this
+    // id and use it later to show cached data.
     queryKey: ['events'],
+    // This is the function which will send the HTTP request to fetch the data
     queryFn: fetchEvents,
   });
 
@@ -21,6 +26,7 @@ export default function NewEventsSection() {
     content = (
       <ErrorBlock
         title="An error occurred"
+        // Setting an error message if there was any
         message={error.info?.message || 'Failed to fetch events.'}
       />
     );

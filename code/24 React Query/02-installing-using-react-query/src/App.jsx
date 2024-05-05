@@ -38,10 +38,13 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Adding a query client
 const queryClient = new QueryClient();
 
 function App() {
   return (
+    // Wrapping our app inside query client provider so that we can use Tanstack Query inside
+    // our components
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>

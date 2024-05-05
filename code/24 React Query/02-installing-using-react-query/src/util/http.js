@@ -1,3 +1,4 @@
+// Function for fetching the events data
 export async function fetchEvents() {
   const response = await fetch('http://localhost:3000/events');
 
