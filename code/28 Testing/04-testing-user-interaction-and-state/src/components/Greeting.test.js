@@ -15,6 +15,7 @@ describe('Greeting component', () => {
     expect(helloWorldElement).toBeInTheDocument();
   });
 
+  // Asserting that if button is not clicked, we see the default text
   test('renders "good to see" you if the button was NOT clicked', () => {
     render(<Greeting />);
 
@@ -22,6 +23,7 @@ describe('Greeting component', () => {
     expect(outputElement).toBeInTheDocument();
   });
 
+  // Asserting that if button is clicked, we see the changed text
   test('renders "Changed!" if the button was clicked', () => {
     // Arrange
     render(<Greeting />);
@@ -35,6 +37,7 @@ describe('Greeting component', () => {
     expect(outputElement).toBeInTheDocument();
   });
 
+  // Asserting that if button is clicked, we do not see the default text
   test('does not render "good to see you" if the button was clicked', () => {
      // Arrange
      render(<Greeting />);

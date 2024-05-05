@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 const Greeting = () => {
+  // Adding some logic to change the text whenever a button is clicked
   const [changedText, setChangedText] = useState(false);
 
   const changeTextHandler = () => {
