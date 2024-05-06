@@ -8,6 +8,7 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 export default function EventForm({ inputData, onSubmit, children }) {
   const [selectedImage, setSelectedImage] = useState(inputData?.image);
 
+  // Query for sending request to fetch images
   const { data, isPending, isError } = useQuery({
     queryKey: ['events-images'],
     queryFn: fetchSelectableImages,
@@ -38,6 +39,7 @@ export default function EventForm({ inputData, onSubmit, children }) {
         />
       </p>
 
+      {/* Displaying different elements according to the loading state, error or data received */}
       {isPending && <p>Loading selectable images...</p>}
       {isError && (
         <ErrorBlock
@@ -48,6 +50,7 @@ export default function EventForm({ inputData, onSubmit, children }) {
       {data && (
         <div className="control">
           <ImagePicker
+            // Providing the fetched data
             images={data}
             onSelect={handleSelectImage}
             selectedImage={selectedImage}
