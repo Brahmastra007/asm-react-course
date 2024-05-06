@@ -9,16 +9,20 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 export default function NewEvent() {
   const navigate = useNavigate();
 
+  // Using the 'useMutation' hook to send POST requests on demand
   const { mutate, isPending, isError, error } = useMutation({
+    // Providing the function used to send the HTTP request
     mutationFn: createNewEvent,
   });
 
   function handleSubmit(formData) {
+    // Using the 'mutate' function to send the POST request with the data
     mutate({ event: formData });
   }
 
   return (
     <Modal onClose={() => navigate('../')}>
+      {/* Showing different elements conditionally based on the loading and error states of the request */}
       <EventForm onSubmit={handleSubmit}>
         {isPending && 'Submitting...'}
         {!isPending && (
