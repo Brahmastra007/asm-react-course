@@ -12,8 +12,14 @@ export default function NewEvent() {
 
   const { mutate, isPending, isError, error } = useMutation({
     mutationFn: createNewEvent,
+    // Adding a function in the 'onSuccess' property which will be run if the request we sent
+    // is successful
     onSuccess: () => {
+      // Invalidating the fetched data which has 'events' in its 'queryKey'. This includes all
+      // events data as well as the events search data. This will cause a refetch if the component
+      // rendering the invalidated data is displayed.
       queryClient.invalidateQueries({ queryKey: ['events'] });
+      // Navigating to all events page
       navigate('/events');
     },
   });
