@@ -61,6 +61,7 @@ export async function fetchSelectableImages({ signal }) {
   return images;
 }
 
+// Function for fetching event
 export async function fetchEvent({ id, signal }) {
   const response = await fetch(`http://localhost:3000/events/${id}`, { signal });
 
@@ -76,7 +77,7 @@ export async function fetchEvent({ id, signal }) {
   return event;
 }
 
-
+// Function for deleting event
 export async function deleteEvent({ id }) {
   const response = await fetch(`http://localhost:3000/events/${id}`, {
     method: 'DELETE',
