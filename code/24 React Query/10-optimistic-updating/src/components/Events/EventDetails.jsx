@@ -8,6 +8,8 @@ import ErrorBlock from '../UI/ErrorBlock.jsx';
 import Modal from '../UI/Modal.jsx';
 
 export default function EventDetails() {
+  // State to determine if we have started deleting the event. If this is true, then we have started
+  // deleting the event and will show the modal to seek confirmation.
   const [isDeleting, setIsDeleting] = useState(false);
 
   const params = useParams();
@@ -34,10 +36,12 @@ export default function EventDetails() {
     },
   });
 
+  // Showing the modal to seek confirmation for deleting the event
   function handleStartDelete() {
     setIsDeleting(true);
   }
 
+  // Cancelling the delete action by closing the modal
   function handleStopDelete() {
     setIsDeleting(false);
   }
@@ -82,6 +86,7 @@ export default function EventDetails() {
         <header>
           <h1>{data.title}</h1>
           <nav>
+            {/* Start deleting when the button is clicked */}
             <button onClick={handleStartDelete}>Delete</button>
             <Link to="edit">Edit</Link>
           </nav>
@@ -104,6 +109,7 @@ export default function EventDetails() {
 
   return (
     <>
+      {/* Showing the modal if we have started deleting */}
       {isDeleting && (
         <Modal onClose={handleStopDelete}>
           <h2>Are you sure?</h2>
@@ -111,6 +117,7 @@ export default function EventDetails() {
             Do you really want to delete this event? This action cannot be
             undone.
           </p>
+          {/* Showing pending request or error elements according to the request status */}
           <div className="form-actions">
             {isPendingDeletion && <p>Deleting, please wait...</p>}
             {!isPendingDeletion && (
@@ -118,6 +125,7 @@ export default function EventDetails() {
                 <button onClick={handleStopDelete} className="button-text">
                   Cancel
                 </button>
+                {/* Performing the delete action if we get confirmation */}
                 <button onClick={handleDelete} className="button">
                   Delete
                 </button>

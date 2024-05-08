@@ -92,6 +92,7 @@ export async function deleteEvent({ id }) {
   return response.json();
 }
 
+// Function for sending request to update the event
 export async function updateEvent({ id, event }) {
   const response = await fetch(`http://localhost:3000/events/${id}`, {
     method: 'PUT',
