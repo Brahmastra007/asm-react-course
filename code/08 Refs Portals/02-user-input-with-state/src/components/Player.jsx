@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 export default function Player() {
+  // Using state to get the player name and display it in the component when submit button is clicked
   const [enteredPlayerName, setEnteredPlayerName] = useState(null);
   const [submitted, setSubmitted] = useState(false);
 
