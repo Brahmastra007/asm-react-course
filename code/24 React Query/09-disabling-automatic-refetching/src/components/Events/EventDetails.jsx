@@ -5,6 +5,8 @@ import Header from '../Header.jsx';
 import { fetchEvent, deleteEvent, queryClient } from '../../util/http.js';
 import ErrorBlock from '../UI/ErrorBlock.jsx';
 
+// You can review the code added for solving the challenge problem involving showing event and
+// deleting event.
 export default function EventDetails() {
   const params = useParams();
   const navigate = useNavigate();
@@ -19,6 +21,9 @@ export default function EventDetails() {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: ['events'],
+        // Setting the 'refetchType' to 'none' to not refetch the data for the invalidated queries immediately
+        // and wait for the component showing the data to rerender and then refetch. This will ensure that
+        // a request is not sent to fetch this deleted event data as this query was invalidated.
         refetchType: 'none'
       });
       navigate('/events');
