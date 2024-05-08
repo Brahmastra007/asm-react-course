@@ -5,6 +5,7 @@ export const queryClient = new QueryClient();
 export async function fetchEvents({ signal, searchTerm, max }) {
   let url = 'http://localhost:3000/events';
 
+  // Constructing different urls based on the 'searchTerm' and 'max' parameters
   if (searchTerm && max) {
     url += '?search=' + searchTerm + '&max=' + max;
   } else if (searchTerm) {

@@ -7,7 +7,9 @@ import { fetchEvents } from '../../util/http.js';
 
 export default function NewEventsSection() {
   const { data, isPending, isError, error } = useQuery({
+    // Adding a 'max' key to limit the number of events fetched to 3
     queryKey: ['events', { max: 3 }],
+    // We can pass the 'max' parameter for 'fetchEvents' in terms of the 'queryKey' we get as parameter
     queryFn: ({ signal, queryKey }) => fetchEvents({ signal, ...queryKey[1] }),
     staleTime: 5000,
     // gcTime: 1000
