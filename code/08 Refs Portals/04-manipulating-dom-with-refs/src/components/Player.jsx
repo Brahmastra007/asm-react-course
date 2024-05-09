@@ -7,6 +7,9 @@ export default function Player() {
   
   function handleClick() {
     setEnteredPlayerName(playerName.current.value);
+    // We can directly manipulate the input by imperatively setting its value through ref. However
+    // we should use this only when required as React is based on the principle of declarative code,
+    // which means letting React handle the DOM manipulation.
     playerName.current.value = '';
   }
 
