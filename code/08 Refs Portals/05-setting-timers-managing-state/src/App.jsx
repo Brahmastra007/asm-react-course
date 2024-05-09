@@ -6,6 +6,7 @@ function App() {
     <>
       <Player />
       <div id="challenges">
+        {/* Adding timer challenges with different target times */}
         <TimerChallenge title="Easy" targetTime={1} />
         <TimerChallenge title="Not easy" targetTime={5} />
         <TimerChallenge title="Getting tough" targetTime={10} />
