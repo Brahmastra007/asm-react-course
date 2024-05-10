@@ -24,6 +24,7 @@ export default function TimerChallenge({ title, targetTime }) {
 
   return (
     <>
+      {/* Showing the modal if timer has expired */}
       {timerExpired && <ResultModal targetTime={targetTime} result="lost" />}
       <section className="challenge">
         <h2>{title}</h2>
