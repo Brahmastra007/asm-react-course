@@ -14,6 +14,7 @@ export default function TimerChallenge({ title, targetTime }) {
   function handleStart() {
     timer.current = setTimeout(() => {
       setTimerExpired(true);
+      // Calling the api function exposed to open the modal
       dialog.current.open();
     }, targetTime * 1000);
 
