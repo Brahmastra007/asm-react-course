@@ -6,6 +6,7 @@ import ResultModal from './ResultModal.jsx';
 
 export default function TimerChallenge({ title, targetTime }) {
   const timer = useRef();
+  // Adding ref to get a reference to the modal
   const dialog = useRef();
 
   const [timerStarted, setTimerStarted] = useState(false);
@@ -14,6 +15,8 @@ export default function TimerChallenge({ title, targetTime }) {
   function handleStart() {
     timer.current = setTimeout(() => {
       setTimerExpired(true);
+      // Showing the modal through this ref after the time has expired. We have to open the modal
+      // programatically like this to get a nice dimmed backdrop when the modal is opened.
       dialog.current.showModal();
     }, targetTime * 1000);
 
@@ -26,6 +29,7 @@ export default function TimerChallenge({ title, targetTime }) {
 
   return (
     <>
+      {/* Rendering modal here as it will be hidden anyways if not opened by us */}
       <ResultModal ref={dialog} targetTime={targetTime} result="lost" />
       <section className="challenge">
         <h2>{title}</h2>
