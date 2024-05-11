@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../store/shopping-cart-context.jsx';
 
 export default function Cart({ onUpdateItemQuantity }) {
+  // Providing the context as a parameter to the 'useContext' hook to get the context value
   const { items } = useContext(CartContext);
 
   const totalPrice = items.reduce(

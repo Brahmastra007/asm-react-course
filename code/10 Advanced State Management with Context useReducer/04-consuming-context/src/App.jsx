@@ -68,6 +68,7 @@ function App() {
   }
 
   return (
+    // Providing a value to the context which is accessed in other components
     <CartContext.Provider value={{ items: [] }}>
       <Header
         cart={shoppingCart}
