@@ -73,6 +73,8 @@ function App() {
         onUpdateCartItemQuantity={handleUpdateCartItemQuantity}
       />
       <Shop>
+        {/* Adding the products here instead of in the 'Shop' component so that we don't have to drill props
+        to pass them to the 'Product' component */}
         {DUMMY_PRODUCTS.map((product) => (
           <li key={product.id}>
             <Product {...product} onAddToCart={handleAddItemToCart} />
