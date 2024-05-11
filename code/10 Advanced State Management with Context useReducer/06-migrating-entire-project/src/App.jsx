@@ -6,6 +6,8 @@ import Product from './components/Product.jsx';
 import { DUMMY_PRODUCTS } from './dummy-products.js';
 import { CartContext } from './store/shopping-cart-context.jsx';
 
+// Removing prop drilling and instead using context for accessing cart related information everywhere
+// You can review the components where prop drilling is removed and instead context is used.
 function App() {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
