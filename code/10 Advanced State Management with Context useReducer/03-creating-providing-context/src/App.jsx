@@ -68,6 +68,8 @@ function App() {
   }
 
   return (
+    // Wrapping this component with the cart context so that all its child components have access to this
+    // context
     <CartContext.Provider>
       <Header
         cart={shoppingCart}
