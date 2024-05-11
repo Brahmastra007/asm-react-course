@@ -10,9 +10,14 @@ import { sortPlacesByDistance } from './loc.js';
 function App() {
   const modal = useRef();
   const selectedPlace = useRef();
+  // All available places sorted by their distance to our location
   const [availablePlaces, setAvailablePlaces] = useState([]);
   const [pickedPlaces, setPickedPlaces] = useState([]);
 
+  // Using 'useEffect' for code that is not directly related to rendering the component. Using
+  // this code without 'useEffect' would cause infinite loops since we are updating state here.
+  // Fetching the current position would also take some time to complete and would not be available
+  // instantly.
   useEffect(() => {
     navigator.geolocation.getCurrentPosition((position) => {
       const sortedPlaces = sortPlacesByDistance(
@@ -77,6 +82,7 @@ function App() {
         />
         <Places
           title="Available Places"
+          // Passing the available places
           places={availablePlaces}
           fallbackText="Sorting places by distance..."
           onSelectPlace={handleSelectPlace}
