@@ -15,6 +15,7 @@ export default function Product({ id, image, title, price, description }) {
           <p>{description}</p>
         </div>
         <p className="product-actions">
+          {/* Getting function from context to add item to cart */}
           <button onClick={() => addItemToCart(id)}>Add to Cart</button>
         </p>
       </div>

@@ -67,12 +67,15 @@ function App() {
     });
   }
 
+  // Defining the context value here linking it to the items state which can be changed. Also adding
+  // a function to add item to cart.
   const ctxValue = {
     items: shoppingCart.items,
     addItemToCart: handleAddItemToCart
   };
 
   return (
+    // Providing the above defined dynamic context value here
     <CartContext.Provider value={ctxValue}>
       <Header
         cart={shoppingCart}
