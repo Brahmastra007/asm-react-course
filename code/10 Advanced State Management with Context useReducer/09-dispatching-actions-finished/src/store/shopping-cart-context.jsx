@@ -9,6 +9,7 @@ export const CartContext = createContext({
 });
 
 function shoppingCartReducer(state, action) {
+  // Action for adding item to cart
   if (action.type === 'ADD_ITEM') {
     const updatedItems = [...state.items];
 
@@ -41,6 +42,7 @@ function shoppingCartReducer(state, action) {
     };
   }
 
+  // Action for updating an item in the cart
   if (action.type === 'UPDATE_ITEM') {
     const updatedItems = [...state.items];
       const updatedItemIndex = updatedItems.findIndex(
@@ -75,13 +77,17 @@ export default function CartContextProvider({ children }) {
     }
   );
 
+  // Function for dispatching action to add item to cart
   function handleAddItemToCart(id) {
     shoppingCartDispatch({
+      // Specifying the type of action
       type: 'ADD_ITEM',
+      // Attaching the payload, i.e. the extra information to be provided for the action
       payload: id,
     });
   }
 
+  // Function for dispatching action to update item in cart
   function handleUpdateCartItemQuantity(productId, amount) {
     shoppingCartDispatch({
       type: 'UPDATE_ITEM',
