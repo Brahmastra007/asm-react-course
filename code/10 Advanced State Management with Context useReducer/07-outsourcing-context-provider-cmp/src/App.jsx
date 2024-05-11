@@ -6,6 +6,7 @@ import CartContextProvider from './store/shopping-cart-context.jsx';
 
 function App() {
   return (
+    // Wrapping the components in the imported cart context provider
     <CartContextProvider>
       <Header />
       <Shop>

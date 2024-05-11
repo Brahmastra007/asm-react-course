@@ -8,6 +8,7 @@ export const CartContext = createContext({
   updateItemQuantity: () => {},
 });
 
+// Adding all the cart related logic in this cart context provider component
 export default function CartContextProvider({children}) {
   const [shoppingCart, setShoppingCart] = useState({
     items: [],
@@ -75,6 +76,7 @@ export default function CartContextProvider({children}) {
     updateItemQuantity: handleUpdateCartItemQuantity,
   };
 
+  // Allowing this component to be wrapped around other components
   return <CartContext.Provider value={ctxValue}>
     {children}
   </CartContext.Provider>
