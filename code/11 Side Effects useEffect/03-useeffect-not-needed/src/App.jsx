@@ -7,6 +7,10 @@ import DeleteConfirmation from './components/DeleteConfirmation.jsx';
 import logoImg from './assets/logo.png';
 import { sortPlacesByDistance } from './loc.js';
 
+// Moving the code to get the selected places from the local storage outside the component so that
+// it is run only once when this component is first rendered. We should not use 'useEffect' for this
+// code even though it is kind of a 'side-effect' because this code runs synchronously and the data
+// is available instantly from the local storage.
 const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
 const storedPlaces = storedIds.map((id) =>
   AVAILABLE_PLACES.find((place) => place.id === id)
@@ -16,6 +20,7 @@ function App() {
   const modal = useRef();
   const selectedPlace = useRef();
   const [availablePlaces, setAvailablePlaces] = useState([]);
+  // Setting the picked places here from the local storage data
   const [pickedPlaces, setPickedPlaces] = useState(storedPlaces);
 
   useEffect(() => {
@@ -48,6 +53,7 @@ function App() {
       return [place, ...prevPickedPlaces];
     });
 
+    // Storing the selected place in the local storage
     const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
     if (storedIds.indexOf(id) === -1) {
       localStorage.setItem(
@@ -63,6 +69,7 @@ function App() {
     );
     modal.current.close();
 
+    // Deleting the removed place from the local storage
     const storedIds = JSON.parse(localStorage.getItem('selectedPlaces')) || [];
     localStorage.setItem(
       'selectedPlaces',
