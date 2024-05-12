@@ -29,6 +29,10 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
           Yes
         </button>
       </div>
+      {/* Removing the progress bar logic from this component and instead adding it in another dedicated
+      progress bar component. This is done for optimization purposes because the interval set up for
+      progress bar would change the state every 10ms in this component and would cause this whole component
+      to reexecute. */}
       <ProgressBar timer={TIMER} />
     </div>
   );
