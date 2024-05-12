@@ -33,11 +33,16 @@ const Counter = memo(function Counter({ initialCount }) {
     [initialCount]
   );
 
+  // We could use the 'useEffect' hook to set the new 'counterChanges' state when 'initialCount' prop
+  // changes but there is a better 'key' based approach as explained before.
   // useEffect(() => {
   //   setCounterChanges([{ value: initialCount, id: Math.random() * 1000 }]);
   // }, [initialCount]);
 
   // const [counter, setCounter] = useState(initialCount);
+  // Introducing 'counterChanges' state here which would keep track of all changes made to the counter.
+  // Making counter change have an id which could be provided as a 'key' to individual counter change
+  // items.
   const [counterChanges, setCounterChanges] = useState([
     { value: initialCount, id: Math.random() * 1000 },
   ]);
