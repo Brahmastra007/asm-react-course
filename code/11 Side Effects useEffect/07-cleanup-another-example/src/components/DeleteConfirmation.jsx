@@ -3,14 +3,18 @@ import { useEffect, useState } from 'react';
 const TIMER = 3000;
 
 export default function DeleteConfirmation({ onConfirm, onCancel }) {
+  // State for the remaining time before timer expires
   const [remainingTime, setRemainingTime] = useState(TIMER);
 
   useEffect(() => {
+    // Using the 'setInterval' to display progress bar for remaining time
     const interval = setInterval(() => {
       console.log('INTERVAL');
+      // Decreasing the time remaining by 10ms
       setRemainingTime((prevTime) => prevTime - 10);
     }, 10);
 
+    // Clearing the interval before the component is dismounted so that timer is deactivated
     return () => {
       clearInterval(interval);
     };
@@ -40,6 +44,8 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
           Yes
         </button>
       </div>
+      {/* Adding a progress bar for the time remaining before the timer expires and the modal is
+      confirmed automatically. */}
       <progress value={remainingTime} max={TIMER} />
     </div>
   );
