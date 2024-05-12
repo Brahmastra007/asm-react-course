@@ -57,6 +57,9 @@ function App() {
     }
   }
 
+  // Using 'useCallback' hook to store functions in memory and not recreate them whenever the component
+  // reexecutes but only recreate them when its dependencies change. Here we use this to prevent possible
+  // infinite loops to be created in the 'DeleteConfirmation' component.
   const handleRemovePlace = useCallback(function handleRemovePlace() {
     setPickedPlaces((prevPickedPlaces) =>
       prevPickedPlaces.filter((place) => place.id !== selectedPlace.current)
@@ -68,6 +71,7 @@ function App() {
       'selectedPlaces',
       JSON.stringify(storedIds.filter((id) => id !== selectedPlace.current))
     );
+    // Here we have no dependencies like state, props that could change.
   }, []);
 
   return (

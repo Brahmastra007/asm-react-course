@@ -11,6 +11,10 @@ export default function DeleteConfirmation({ onConfirm, onCancel }) {
       console.log('Cleaning up timer');
       clearTimeout(timer);
     };
+    // Adding 'onConfirm' as a dependency here as it is a prop whose value could change. Although it
+    // is a function defined in 'App' component which does not change, but its value changes whenever
+    // 'App' component rerenders, as functions are objects. This could lead to infinite loops if
+    // 'onConfirm' has state changes in it.
   }, [onConfirm]);
 
   return (
