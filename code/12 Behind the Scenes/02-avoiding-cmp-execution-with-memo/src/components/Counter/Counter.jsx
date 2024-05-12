@@ -27,6 +27,9 @@ function isPrime(number) {
   return true;
 }
 
+// We can wrap components with 'memo' to prevent them from reexecuting if their props don't change.
+// However it should be used with care since checking if the props current value is different from
+// their previous value also has some performance cost.
 const Counter = memo(function Counter({ initialCount }) {
   log('<Counter /> rendered', 1);
   const initialCountIsPrime = isPrime(initialCount);
