@@ -2,6 +2,10 @@ import { useState } from 'react';
 
 import { log } from '../../log.js';
 
+// Exporting the code for configuring the counter here so that the 'App' component does not reexecute
+// every time the state 'enteredNumber' changes on typing something in input and only this component
+// is reexecuted. We can use component composition like this by exporting the code belonging to one
+// functionality to other component for optimization purposes.
 export default function ConfigureCounter({ onSet }) {
   log('<ConfigureCounter />', 1);
 

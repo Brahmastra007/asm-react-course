@@ -27,10 +27,17 @@ function isPrime(number) {
 const Counter = memo(function Counter({ initialCount }) {
   log('<Counter /> rendered', 1);
 
+  // We can use 'useMemo' hook to prevent recalculating some value which possibly performs some complex
+  // calculations and instead store that value in memory to be used the next time the component reexecutes.
+  // We should also use this with care and only for situations where the value needs some intensive
+  // calculations or if it would change very rarely.
   const initialCountIsPrime = useMemo(() => isPrime(initialCount), [initialCount]);
 
   const [counter, setCounter] = useState(initialCount);
 
+  // Using 'useCallback' hook to store functions in memory so that they are not recreated every time the
+  // component reexecutes. This is done here for 'memo' to work correctly as otherwise this function
+  // prop would be considered as changed and that component would be reexecuted.
   const handleDecrement = useCallback(function handleDecrement() {
     setCounter((prevCounter) => prevCounter - 1);
   }, []);
