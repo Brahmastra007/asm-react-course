@@ -14,6 +14,7 @@ const storedPlaces = storedIds.map((id) =>
 
 function App() {
   const selectedPlace = useRef();
+  // Using state to manage the opening and closing of modal
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [availablePlaces, setAvailablePlaces] = useState([]);
   const [pickedPlaces, setPickedPlaces] = useState(storedPlaces);
@@ -31,11 +32,13 @@ function App() {
   }, []);
 
   function handleStartRemovePlace(id) {
+    // Opening the modal
     setModalIsOpen(true);
     selectedPlace.current = id;
   }
 
   function handleStopRemovePlace() {
+    // Closing the modal
     setModalIsOpen(false);
   }
 
