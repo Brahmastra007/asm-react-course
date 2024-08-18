@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+// Adding basic route pages and links
 export default function Home() {
   return (
     <main>
