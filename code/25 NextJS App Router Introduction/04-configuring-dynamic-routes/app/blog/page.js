@@ -4,6 +4,7 @@ export default function BlogPage() {
   return (
     <main>
       <h1>The Blog</h1>
+      {/* Adding links to redirect to the specific blog post page */}
       <p>
         <Link href="/blog/post-1">Post 1</Link>
       </p>

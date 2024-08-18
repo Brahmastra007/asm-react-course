@@ -1,3 +1,5 @@
+// Refactoring this component here outside of the 'app' folder so that it contains only route
+// based folders
 export default function Header() {
   return (
     <>
