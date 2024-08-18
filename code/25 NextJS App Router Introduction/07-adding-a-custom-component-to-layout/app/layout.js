@@ -31,6 +31,7 @@ export default function RootLayout({ children }) {
           </svg>
         </div>
 
+        {/* Adding the header component */}
         <MainHeader />
         {children}
       </body>
