@@ -8,6 +8,9 @@ export default function MainHeader() {
   return (
     <header className={classes.header}>
       <Link className={classes.logo} href="/">
+        {/* Using 'Image' component from Next.js for getting features like lazy loading for image
+        so that it gets loaded only when it's visible on the screen. Here we add the attribute
+        'priority' so that we always load the image as we know it will always be visible. */}
         <Image src={logoImg} alt="A plate with food on it" priority />
         NextLevel Food
       </Link>
