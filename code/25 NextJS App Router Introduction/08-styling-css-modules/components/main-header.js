@@ -1,10 +1,12 @@
 import Link from 'next/link';
 
 import logoImg from '@/assets/logo.png';
+// Importing CSS as module
 import classes from './main-header.module.css';
 
 export default function MainHeader() {
   return (
+    // Applying classes as properties
     <header className={classes.header}>
       <Link className={classes.logo} href="/">
         <img src={logoImg.src} alt="A plate with food on it" />
