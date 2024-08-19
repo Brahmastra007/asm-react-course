@@ -5,6 +5,7 @@ import classes from './page.module.css';
 export default function Home() {
   return (
     <>
+      {/* Adding some links and sections */}
       <header className={classes.header}>
         <div className={classes.slideshow}></div>
         <div>
