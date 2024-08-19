@@ -8,6 +8,7 @@ import classes from './main-header.module.css';
 export default function MainHeader() {
   return (
     <>
+      {/* Adding main header background component */}
       <MainHeaderBackground />
       <header className={classes.header}>
         <Link className={classes.logo} href="/">

@@ -1,5 +1,6 @@
 import classes from './main-header-background.module.css';
 
+// Refactoring main header background component
 export default function MainHeaderBackground() {
   return (
     <div className={classes['header-background']}>
