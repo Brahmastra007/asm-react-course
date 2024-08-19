@@ -18,6 +18,7 @@ export default function MainHeader() {
 
         <nav className={classes.nav}>
           <ul>
+            {/* Adding 'Navlink' components for navigation links */}
             <li>
               <NavLink href="/meals">Browse Meals</NavLink>
             </li>

@@ -7,6 +7,7 @@ import classes from './page.module.css';
 
 export default function CommunityPage() {
   return (
+    // Adding some content for the community page
     <>
       <header className={classes.header}>
         <h1>
