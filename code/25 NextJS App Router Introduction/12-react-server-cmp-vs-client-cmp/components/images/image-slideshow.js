@@ -1,3 +1,6 @@
+/* Since all components in Next.js projects are by default server-side components which are
+rendered in the server, we have to tell Next.js explicitly using the following directive to
+create a client-side component to use client-side features like useEffect, events etc. */
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -25,6 +28,7 @@ const images = [
 export default function ImageSlideshow() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Using 'useEffect' to create an interval to cycle through images every 5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImageIndex((prevIndex) =>
@@ -32,10 +36,12 @@ export default function ImageSlideshow() {
       );
     }, 5000);
 
+    // Clearing the interval when the component dismounts using the cleanup function
     return () => clearInterval(interval);
   }, []);
 
   return (
+    // Going through all images and displaying the currently active image
     <div className={classes.slideshow}>
       {images.map((image, index) => (
         <Image

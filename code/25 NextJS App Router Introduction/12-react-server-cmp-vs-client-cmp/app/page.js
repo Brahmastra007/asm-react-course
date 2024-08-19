@@ -7,6 +7,7 @@ export default function Home() {
   return (
     <>
       <header className={classes.header}>
+        {/* Adding the slideshow component */}
         <div className={classes.slideshow}>
           <ImageSlideshow />
         </div>
