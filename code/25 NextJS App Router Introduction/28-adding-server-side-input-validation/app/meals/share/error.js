@@ -1,5 +1,6 @@
 'use client';
 
+// Show this error page when user submits invalid meal data
 export default function Error() {
   return (
     <main className="error">

@@ -18,6 +18,7 @@ export async function shareMeal(formData) {
     creator_email: formData.get('email'),
   };
 
+  // Throw an error if meal data is invalid
   if (
     isInvalidText(meal.title) ||
     isInvalidText(meal.summary) ||
