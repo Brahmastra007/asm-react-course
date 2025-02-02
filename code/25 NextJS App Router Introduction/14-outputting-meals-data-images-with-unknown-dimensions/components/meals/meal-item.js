@@ -3,11 +3,14 @@ import Image from 'next/image';
 
 import classes from './meal-item.module.css';
 
+// Defining an individual meal item component
 export default function MealItem({ title, slug, image, summary, creator }) {
   return (
     <article className={classes.meal}>
       <header>
         <div className={classes.image}>
+          {/* Since this image will be inserted dynamically at runtime and its dimensions are not known
+          in advance, we use the 'fill' attribute to fill the image appropriately according to its dimensions. */}
           <Image src={image} alt={title} fill />
         </div>
         <div className={classes.headerText}>
@@ -18,6 +21,7 @@ export default function MealItem({ title, slug, image, summary, creator }) {
       <div className={classes.content}>
         <p className={classes.summary}>{summary}</p>
         <div className={classes.actions}>
+          {/* Link to individual meal page with dynamic parameter */}
           <Link href={`/meals/${slug}`}>View Details</Link>
         </div>
       </div>

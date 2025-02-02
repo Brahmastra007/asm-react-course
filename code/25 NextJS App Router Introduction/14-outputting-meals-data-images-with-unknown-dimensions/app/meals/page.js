@@ -5,6 +5,7 @@ import MealsGrid from '@/components/meals/meals-grid';
 
 export default function MealsPage() {
   return (
+    // Adding some content
     <>
       <header className={classes.header}>
         <h1>
@@ -15,12 +16,14 @@ export default function MealsPage() {
           Choose your favorite recipe and cook it yourself. It is easy and fun!
         </p>
         <p className={classes.cta}>
+          {/* Link to share the meal */}
           <Link href="/meals/share">
             Share Your Favorite Recipe
           </Link>
         </p>
       </header>
       <main className={classes.main}>
+        {/* Adding the meals grid for displaying all meals */}
         <MealsGrid meals={[]} />
       </main>
     </>
