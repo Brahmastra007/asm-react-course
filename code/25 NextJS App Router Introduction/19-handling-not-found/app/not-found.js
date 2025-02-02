@@ -1,3 +1,4 @@
+// Add a 'Not Found' page to show when user goes to a non-existing URL
 export default function NotFound() {
   return (
     <main className="not-found">
