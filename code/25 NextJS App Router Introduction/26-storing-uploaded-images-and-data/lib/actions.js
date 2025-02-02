@@ -14,6 +14,8 @@ export async function shareMeal(formData) {
     creator_email: formData.get('email'),
   };
 
+  // Pass the meal data we received from the form to save it
   await saveMeal(meal);
+  // After saving the meal details, redirect to the meals page
   redirect('/meals');
 }
