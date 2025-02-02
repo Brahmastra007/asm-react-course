@@ -2,6 +2,12 @@ import ImagePicker from '@/components/meals/image-picker';
 import classes from './page.module.css';
 import { shareMeal } from '@/lib/actions';
 
+/* If we had used 'use client' directive in this file to use some client-only feature, then
+we would get an error as we are not allowed to use server actions in a client component file.
+Also we may not want our JSX code and form submission handling logic in the same file.
+So we can store server actions in a separate file to solve these potential issues and then
+just import them here. */
+
 export default function ShareMealPage() {
   return (
     <>

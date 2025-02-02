@@ -1,5 +1,7 @@
+// Use this directive which will treat all functions in this file as server actions.
 'use server';
 
+// Put the form submission handling logic here
 export async function shareMeal(formData) {
   const meal = {
     title: formData.get('title'),
