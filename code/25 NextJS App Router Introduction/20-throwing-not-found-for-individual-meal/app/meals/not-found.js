@@ -1,3 +1,4 @@
+// Page to show when a user goes to an invalid meal page
 export default function NotFound() {
   return (
     <main className="not-found">

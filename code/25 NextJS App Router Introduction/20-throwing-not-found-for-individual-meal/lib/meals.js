@@ -9,6 +9,7 @@ export async function getMeals() {
   return db.prepare('SELECT * FROM meals').all();
 }
 
+// Function to get a specific meal data
 export function getMeal(slug) {
   return db.prepare('SELECT * FROM meals WHERE slug = ?').get(slug);
 }
