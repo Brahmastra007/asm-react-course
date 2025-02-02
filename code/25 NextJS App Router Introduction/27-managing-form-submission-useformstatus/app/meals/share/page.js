@@ -43,6 +43,8 @@ export default function ShareMealPage() {
           </p>
           <ImagePicker label="Your image" name="image" />
           <p className={classes.actions}>
+            {/* Separate the submit button in another component so that we don't have to
+            employ 'use client' directive for this whole page. */}
             <MealsFormSubmit />
           </p>
         </form>
