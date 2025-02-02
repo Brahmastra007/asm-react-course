@@ -6,6 +6,7 @@ import MealsGrid from '@/components/meals/meals-grid';
 import { getMeals } from '@/lib/meals';
 
 async function Meals() {
+  // We can see that this function is being run or not from this console message.
   console.log('Fetching meals');
   const meals = await getMeals();
 
