@@ -8,6 +8,9 @@ function isInvalidText(text) {
   return !text || text.trim() === '';
 }
 
+/* Add a new argument 'prevState' which is passed by the 'useFormState' hook to this function
+along with 'formData'. The 'prevState' is either the initial state or one of the previously
+generated responses. */
 export async function shareMeal(prevState, formData) {
   const meal = {
     title: formData.get('title'),
@@ -28,6 +31,8 @@ export async function shareMeal(prevState, formData) {
     !meal.image ||
     meal.image.size === 0
   ) {
+    /* If form data is invalid, send an appropriate message. But the shape of this return
+    object is entirely up to you. */
     return {
       message: 'Invalid input.',
     };
