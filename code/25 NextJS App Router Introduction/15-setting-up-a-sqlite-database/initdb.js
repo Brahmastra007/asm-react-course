@@ -1,6 +1,14 @@
+/* First install 'better-sqlite3' using this command: 'npm install better-sqlite3'. This
+package will allow us to work with a sqlite database.
+After that, you can run this file to create a database and fill it with some dummy data.
+You can run this file using this command: 'node initdb.js' after which you should see a
+'meals.db' file created. */
+
 const sql = require('better-sqlite3');
+// Either create a new database file if it doesn't exist or use the existing one
 const db = sql('meals.db');
 
+// Dummy meals data
 const dummyMeals = [
   {
     title: 'Juicy Cheese Burger',
@@ -164,6 +172,7 @@ const dummyMeals = [
   },
 ];
 
+// Create a new table if it doesn't exist yet and configure all the columns
 db.prepare(`
    CREATE TABLE IF NOT EXISTS meals (
        id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -177,6 +186,7 @@ db.prepare(`
     )
 `).run();
 
+// Write dummy data into the database
 async function initData() {
   const stmt = db.prepare(`
       INSERT INTO meals VALUES (
