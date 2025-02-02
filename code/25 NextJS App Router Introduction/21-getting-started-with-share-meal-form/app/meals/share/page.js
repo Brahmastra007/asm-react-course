@@ -1,5 +1,6 @@
 import classes from './page.module.css';
 
+// Add the share meal page where users can add a meal using a form
 export default function ShareMealPage() {
   return (
     <>
