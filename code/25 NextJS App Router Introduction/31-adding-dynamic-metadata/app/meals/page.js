@@ -5,6 +5,7 @@ import classes from './page.module.css';
 import MealsGrid from '@/components/meals/meals-grid';
 import { getMeals } from '@/lib/meals';
 
+// Add metadata specific to this page
 export const metadata = {
   title: 'All Meals',
   description: 'Browse the delicious meals shared by our vibrant community.',

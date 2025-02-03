@@ -4,13 +4,17 @@ import { notFound } from 'next/navigation';
 import { getMeal } from '@/lib/meals';
 import classes from './page.module.css';
 
+// Add dynamic metadata by exporting the function 'generateMetadata'
 export async function generateMetadata({ params }) {
+  // Fetch the meal object
   const meal = getMeal(params.mealSlug);
 
+  // Show the not-found page if meal is not found
   if (!meal) {
     notFound();
   }
 
+  // Return the dynamic metadata
   return {
     title: meal.title,
     description: meal.summary,
