@@ -1,6 +1,7 @@
 import ProductItem from './ProductItem';
 import classes from './Products.module.css';
 
+// Some dummy products
 const DUMMY_PRODUCTS = [
   {
     id: 'p1',
@@ -21,6 +22,7 @@ const Products = (props) => {
     <section className={classes.products}>
       <h2>Buy your favorite products</h2>
       <ul>
+        {/* Map all the products to individual 'ProductItem' component */}
         {DUMMY_PRODUCTS.map((product) => (
           <ProductItem
             key={product.id}

@@ -7,8 +7,10 @@ import classes from './ProductItem.module.css';
 const ProductItem = (props) => {
   const dispatch = useDispatch();
 
+  // Destructure the product attributes
   const { title, price, description, id } = props;
 
+  // Dispatch action to add 1 quantity of a specific product item to the cart
   const addToCartHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -28,6 +30,7 @@ const ProductItem = (props) => {
         </header>
         <p>{description}</p>
         <div className={classes.actions}>
+          {/* Attach the add to cart handler */}
           <button onClick={addToCartHandler}>Add to Cart</button>
         </div>
       </Card>

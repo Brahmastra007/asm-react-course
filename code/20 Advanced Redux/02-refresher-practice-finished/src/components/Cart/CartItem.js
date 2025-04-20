@@ -6,12 +6,15 @@ import { cartActions } from '../../store/cart-slice';
 const CartItem = (props) => {
   const dispatch = useDispatch();
 
+  // Destructure the cart item attributes
   const { title, quantity, total, price, id } = props.item;
 
+  // Dispatch action to remove 1 quantity of a specific item from the cart
   const removeItemHandler = () => {
     dispatch(cartActions.removeItemFromCart(id));
   };
 
+  // Dispatch action to add 1 quantity of a specific item to the cart
   const addItemHandler = () => {
     dispatch(
       cartActions.addItemToCart({
@@ -36,6 +39,7 @@ const CartItem = (props) => {
           x <span>{quantity}</span>
         </div>
         <div className={classes.actions}>
+          {/* Attach handlers to remove or add item to the cart */}
           <button onClick={removeItemHandler}>-</button>
           <button onClick={addItemHandler}>+</button>
         </div>

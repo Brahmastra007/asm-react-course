@@ -5,12 +5,14 @@ import classes from './Cart.module.css';
 import CartItem from './CartItem';
 
 const Cart = (props) => {
+  // Get cart items from Redux state
   const cartItems = useSelector((state) => state.cart.items);
 
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
       <ul>
+        {/* Map all cart items to individual 'CartItem' component */}
         {cartItems.map((item) => (
           <CartItem
             key={item.id}

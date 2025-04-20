@@ -7,6 +7,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Wrap the Redux store provider component around the app component
   <Provider store={store}>
     <App />
   </Provider>
