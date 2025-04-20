@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+// Extract the 'auth' state in this separate file
 const initialAuthState = {
   isAuthenticated: false,
 };
