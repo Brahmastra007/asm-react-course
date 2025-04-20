@@ -4,6 +4,8 @@ const initialState = { counter: 0, showCounter: true };
 
 const counterReducer = (state = initialState, action) => {
   if (action.type === 'increment') {
+    /* We must always provide a new state to replace the existing state and never mutate the existing state. Doing the latter may
+    sometimes cause unwanted bugs where the UI is not in sync with the Redux state and is difficult to debug. */
     return {
       counter: state.counter + 1,
       showCounter: state.showCounter,
