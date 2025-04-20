@@ -32,10 +32,12 @@ const Counter = () => {
 export default Counter;
 
 // class Counter extends Component {
+//   // Define the increment handler
 //   incrementHandler() {
 //     this.props.increment();
 //   }
 
+//   // Define the decrement handler
 //   decrementHandler() {
 //     this.props.decrement();
 //   }
@@ -46,8 +48,10 @@ export default Counter;
 //     return (
 //       <main className={classes.counter}>
 //         <h1>Redux Counter</h1>
+//         {/* Add the counter */}
 //         <div className={classes.value}>{this.props.counter}</div>
 //         <div>
+//           {/* Add the counter handlers and bind them to this class */}
 //           <button onClick={this.incrementHandler.bind(this)}>Increment</button>
 //           <button onClick={this.decrementHandler.bind(this)}>Decrement</button>
 //         </div>
@@ -57,12 +61,14 @@ export default Counter;
 //   }
 // }
 
+// // This function will be executed by Redux and will map the Redux state to component props
 // const mapStateToProps = state => {
 //   return {
 //     counter: state.counter
 //   };
 // }
 
+// // This function will be executed by Redux and will map the Redux dispatch actions to component props
 // const mapDispatchToProps = dispatch => {
 //   return {
 //     increment: () => dispatch({ type: 'increment' }),
@@ -70,4 +76,5 @@ export default Counter;
 //   }
 // };
 
+// // Connect the Redux store to this component and pass the functions defined above
 // export default connect(mapStateToProps, mapDispatchToProps)(Counter);
