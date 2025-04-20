@@ -4,9 +4,12 @@ import classes from './Header.module.css';
 import { authActions } from '../store/index';
 
 const Header = () => {
+  // Hook to dispatch actions
   const dispatch = useDispatch();
+  // Check if user is authenticated
   const isAuth = useSelector((state) => state.auth.isAuthenticated);
 
+  // Logout the user
   const logoutHandler = () => {
     dispatch(authActions.logout());
   };
@@ -14,6 +17,7 @@ const Header = () => {
   return (
     <header className={classes.header}>
       <h1>Redux Auth</h1>
+      {/* If user is authenticated, only then show this navbar with the 'Logout' button. */}
       {isAuth && (
         <nav>
           <ul>

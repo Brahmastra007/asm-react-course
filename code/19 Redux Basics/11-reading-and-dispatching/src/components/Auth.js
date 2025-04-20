@@ -4,8 +4,10 @@ import classes from './Auth.module.css';
 import { authActions } from '../store/index';
 
 const Auth = () => {
+  // Hook to dispatch actions
   const dispatch = useDispatch();
 
+  // Login the user
   const loginHandler = (event) => {
     event.preventDefault();
 
@@ -15,6 +17,7 @@ const Auth = () => {
   return (
     <main className={classes.auth}>
       <section>
+        {/* Dispatch login action on submitting the form */}
         <form onSubmit={loginHandler}>
           <div className={classes.control}>
             <label htmlFor='email'>Email</label>
