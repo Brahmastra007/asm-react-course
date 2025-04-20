@@ -5,6 +5,7 @@ import classes from './Counter.module.css';
 
 const Counter = () => {
   const dispatch = useDispatch();
+  // Update these variables to fetch the state from the 'counter' reducer defined while configuring the store
   const counter = useSelector((state) => state.counter.counter);
   const show = useSelector((state) => state.counter.showCounter);
 
