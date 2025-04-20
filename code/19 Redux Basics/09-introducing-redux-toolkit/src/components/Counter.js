@@ -9,10 +9,12 @@ const Counter = () => {
   const show = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
+    // Dispatch actions directly by calling the function
     dispatch(counterActions.increment());
   };
 
   const increaseHandler = () => {
+    // Pass the payload along with the action
     dispatch(counterActions.increase(10)); // { type: SOME_UNIQUE_IDENTIFIER, payload: 10 }
   };
 
