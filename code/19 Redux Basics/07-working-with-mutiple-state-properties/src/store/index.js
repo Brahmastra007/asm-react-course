@@ -1,5 +1,6 @@
 import { createStore } from 'redux';
 
+// Extract the initial state into a separate variable
 const initialState = { counter: 0, showCounter: true };
 
 const counterReducer = (state = initialState, action) => {
@@ -24,6 +25,7 @@ const counterReducer = (state = initialState, action) => {
     };
   }
 
+  // Add the 'toggle' action to toggle the counter (show / hide the counter)
   if (action.type === 'toggle') {
     return {
       showCounter: !state.showCounter,
