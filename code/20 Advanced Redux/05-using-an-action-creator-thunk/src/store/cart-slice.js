@@ -43,7 +43,10 @@ const cartSlice = createSlice({
   },
 });
 
+// Action creator to send cart data to the backend
 export const sendCartData = (cart) => {
+  /* Instead of returning an action object, this action creator function is instead returning another function which performs a flow
+  of steps which includes sending HTTP requests and dispatching other actions. */
   return async (dispatch) => {
     dispatch(
       uiActions.showNotification({

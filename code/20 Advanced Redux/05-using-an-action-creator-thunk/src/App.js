@@ -21,6 +21,7 @@ function App() {
       return;
     }
 
+    // Dispatch action to send cart data to the backend
     dispatch(sendCartData(cart));
   }, [cart, dispatch]);
 
