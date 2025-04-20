@@ -3,6 +3,7 @@ import { cartActions } from './cart-slice';
 
 export const fetchCartData = () => {
   return async (dispatch) => {
+    // Define an async function to fetch the cart data
     const fetchData = async () => {
       const response = await fetch(
         'https://react-http-6b4a6.firebaseio.com/cart.json'
@@ -18,7 +19,9 @@ export const fetchCartData = () => {
     };
 
     try {
+      // Fetch the cart data
       const cartData = await fetchData();
+      // Update the cart with the data fetched from the backend
       dispatch(
         cartActions.replaceCart({
           items: cartData.items || [],
@@ -26,6 +29,7 @@ export const fetchCartData = () => {
         })
       );
     } catch (error) {
+      // Show an error notification if we failed to fetch cart data
       dispatch(
         uiActions.showNotification({
           status: 'error',

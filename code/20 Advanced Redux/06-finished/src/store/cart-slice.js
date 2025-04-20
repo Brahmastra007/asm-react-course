@@ -5,6 +5,8 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalQuantity: 0,
+    /* Add the 'changed' state which tells if the local cart state has been changed so that we should send a request to update the
+    cart state in the backend also. */
     changed: false,
   },
   reducers: {
@@ -16,6 +18,7 @@ const cartSlice = createSlice({
       const newItem = action.payload;
       const existingItem = state.items.find((item) => item.id === newItem.id);
       state.totalQuantity++;
+      // Local cart state is changed
       state.changed = true;
       if (!existingItem) {
         state.items.push({
@@ -34,6 +37,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const existingItem = state.items.find((item) => item.id === id);
       state.totalQuantity--;
+      // Local cart state is changed
       state.changed = true;
       if (existingItem.quantity === 1) {
         state.items = state.items.filter((item) => item.id !== id);

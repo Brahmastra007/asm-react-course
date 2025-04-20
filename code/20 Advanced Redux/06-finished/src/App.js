@@ -16,6 +16,7 @@ function App() {
   const notification = useSelector((state) => state.ui.notification);
 
   useEffect(() => {
+    // Fetch the cart data when this component is rendered the first time
     dispatch(fetchCartData());
   }, [dispatch]);
 
@@ -25,6 +26,7 @@ function App() {
       return;
     }
 
+    // Send a request to update the cart data in the backend only if local cart state is changed
     if (cart.changed) {
       dispatch(sendCartData(cart));
     }
