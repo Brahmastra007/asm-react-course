@@ -8,6 +8,7 @@ import store from './store/index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  // Wrap the root component with the Redux Provider component so that the state is available to all the child components
   <Provider store={store}>
     <App />
   </Provider>
